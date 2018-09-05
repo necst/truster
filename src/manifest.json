@@ -5,7 +5,7 @@
   "permissions": ["webRequest", "webRequestBlocking",
                   "<all_urls>"],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js", "sha256.min.js"]
   },
 
   "manifest_version": 2
