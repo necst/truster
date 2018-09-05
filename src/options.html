@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>Truster Options</title></head>
+<body>
+
+<div>
+  What to do when a web-page attempts to load a resource from an untrusted, writable bucket:
+  <select id="action">
+    <option value="block">Block resource</option>
+    <option value="ask">Ask before loading</option>
+    <option value="warn">Show warning</option>
+  </select>
+</div>
+
+<div>
+  Send us bucket names for analysis:
+  <select id="sendbucket">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+</div>
+
+<div id="status"></div>
+<button id="save">Save</button>
+
+<script src="options.js"></script>
+</body>
+</html>

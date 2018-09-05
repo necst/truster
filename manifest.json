@@ -1,0 +1,28 @@
+{
+  "name": "truster",
+  "version": "1.0",
+  "description": "Prevent the rendered web-pages from loading resources hosted in untrusted, writable S3 buckets.",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+   ],
+  "icons": {
+    "16": "imgs/icon_16.png",
+    "32": "imgs/icon_32.png",
+    "48": "imgs/icon_48.png",
+    "128": "imgs/icon_128.png"
+  },
+  "background": {
+    "scripts": [
+      "src/background.js",
+      "src/sha256.min.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": "imgs/icon_16.png"
+  },
+  "options_page": "src/options.html",
+  "manifest_version": 2
+}
+
