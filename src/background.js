@@ -64,10 +64,30 @@ chrome.webRequest.onBeforeRequest.addListener(
         // Hash bucket name
         var hashedBucketName = sha256(bucketName);
 
+        // Get action to do
+        var action;
+        if (localStorage.getItem("truster-action") == null)
+          action = "block";
+        else
+          action = localStorage.getItem("truster-action");
+
         // Check if hashed bucket name is in the blacklist. If so, do no load the resource
         if (blacklist.includes(hashedBucketName)){
-          console.log('[Truster] Untrusted resource blocked: ' + info.url);
-          return {redirectUrl: "javascript:"};
+          if (action == "block"){
+            console.log("[Truster] Untrusted resource blocked: " + info.url);
+            return {redirectUrl: "javascript:"};
+
+          } else if (action == "warn"){
+            console.log("[Truster] Untrusted resource warning: " + info.url);
+            alert("Website is loading an untrusted resource: " + info.url);
+
+          } else if (action == "ask"){
+            console.log("[Truster] Untrusted resource, asking: " + info.url);
+            if (!confirm("Load an untrusted resource " + info.url + "?")){
+              console.log("[Truster] Untrusted resource blocked: " + info.url);
+              return {redirectUrl: "javascript:"};
+            }
+          }
         }
       }
     }
