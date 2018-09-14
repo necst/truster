@@ -71,7 +71,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         else
           action = localStorage.getItem("truster-action");
 
-        // Check if hashed bucket name is in the blacklist. If so, do no load the resource
+        // Check if hashed bucket name is in the blacklist.
         if (blacklist.includes(hashedBucketName)){
           if (action == "block"){
             console.log("[Truster] Untrusted resource blocked: " + info.url);
@@ -87,6 +87,21 @@ chrome.webRequest.onBeforeRequest.addListener(
               console.log("[Truster] Untrusted resource blocked: " + info.url);
               return {redirectUrl: "javascript:"};
             }
+          }
+        } else {
+          var sendbucket;
+          if (localStorage.getItem("truster-sendbucket") == null)
+            sendbucket = false;
+          else
+            sendbucket = (localStorage.getItem("truster-sendbucket") == "true");
+
+          if (sendbucket){
+            console.log("[Truster] Sending bucket name for analysis");
+            var xmlhttp = new XMLHttpRequest();
+            var endpoint = "http://localhost:5000/api/scan";
+            xmlhttp.open("POST", endpoint, true);
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.send(JSON.stringify({bucket_name: bucketName}));
           }
         }
       }
