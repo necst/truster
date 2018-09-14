@@ -98,7 +98,7 @@ chrome.webRequest.onBeforeRequest.addListener(
           if (sendbucket){
             console.log("[Truster] Sending bucket name for analysis");
             var xmlhttp = new XMLHttpRequest();
-            var endpoint = "http://localhost:5000/api/scan";
+            var endpoint = "https://bucketsec.necst.it/api/scan";
             xmlhttp.open("POST", endpoint, true);
             xmlhttp.setRequestHeader("Content-Type", "application/json");
             xmlhttp.send(JSON.stringify({bucket_name: bucketName}));
