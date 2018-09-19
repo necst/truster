@@ -5,7 +5,7 @@ truster is a Chrome extension that prevents the rendered web-pages from loading 
 
 ## What does it mean?
 
-Websites often load assets (CSS, JS,..) hosted in AWS S3 buckets. Unfortunately, sometimes such buckets are misconfigured allowing unauthorized users overwrite their files. This results in the possibility for attackers to inject malicious content (for instance malicious cryptomining JS) that gets delivered to the website's visitors. To protect from this threat, truster, communicating with our backend ([https://bucketsec.necst.it/](https://bucketsec.necst.it/)), verifies if the resources requested from the visited websites come from an untrusted, writable, bucket, preventing the loading of such resources.
+Websites often load assets (CSS, JS,..) hosted in AWS S3 buckets. Unfortunately, sometimes such buckets are misconfigured allowing unauthorized users to overwrite their files. This results in the possibility for attackers to inject malicious content (for instance malicious cryptomining JS) that gets delivered to the website's visitors. To protect from this threat, truster, communicating with our backend ([https://bucketsec.necst.it/](https://bucketsec.necst.it/)), verifies if the resources requested from the visited websites come from an untrusted, writable, bucket, preventing the loading of such resources.
 
 ## Install
 
