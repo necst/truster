@@ -30,7 +30,7 @@ Andrea Continella, Mario Polino, Marcello Pogliani, Stefano Zanero.
 
 If you use *truster* in a scientific publication, we would appreciate citations using this **Bibtex** entry:
 ``` tex
-@InProceedings{continella18:bucketset,
+@InProceedings{continella18:bucketsec,
   author =      {Andrea Continella and Mario Polino and Marcello Pogliani and Stefano Zanero},
   title =       {{There's a Hole in that Bucket! A Large-scale Analysis of Misconfigured S3 Buckets}},
   booktitle =   {Proceedings of the ACM Annual Computer Security Applications Conference (ACSAC)},
