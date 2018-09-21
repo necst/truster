@@ -3,6 +3,7 @@
   "version": "1.0",
   "description": "Prevent the rendered web-pages from loading resources hosted in untrusted, writable S3 buckets.",
   "permissions": [
+    "storage",
     "webRequest",
     "webRequestBlocking",
     "<all_urls>"
@@ -22,7 +23,10 @@
   "browser_action": {
     "default_icon": "imgs/icon_16.png"
   },
-  "options_page": "src/options.html",
+  "options_ui": {
+      "page" : "src/options.html",
+      "open_in_tab" : false
+  },
   "manifest_version": 2
 }
 
