@@ -10,12 +10,16 @@ installListeners = function() {
   ["blocking"]);
 
   chrome.storage.onChanged.addListener(function(changes, namespace) {
+
     for (key in changes) {
       var storageChange = changes[key];
-      if (key == 'truster_action' || key == 'truster_sendBucket') {
-        settings[key] = storageChange.newValue;
+      if (key == 'truster_action') {
+        settings['action'] = storageChange.newValue;
+      } else if(key == 'truster_sendBucket') {
+        settings['sendBucket'] = storageChange.newValue;
       }
     }
+
   });
 
   chrome.tabs.onRemoved.addListener(onTabRemoved);
@@ -143,6 +147,8 @@ onBeforeRequest = function(info) {
         tabs[tab_id].add(bucketName);
       }
       updateBadge(tab_id);
+
+      console.log(settings.action);
 
       if (settings.action == "block"){
         console.log("[Truster] Untrusted resource blocked: " + info.url);
