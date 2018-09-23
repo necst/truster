@@ -1,11 +1,13 @@
 {
   "name": "truster",
-  "version": "1.0",
+  "version": "0.1",
   "description": "Prevent the rendered web-pages from loading resources hosted in untrusted, writable S3 buckets.",
+  "content_security_policy": "default-src 'self'; connect-src https://bucketsec.necst.it; style-src https://maxcdn.bootstrapcdn.com/bootstrap/",
   "permissions": [
     "storage",
     "webRequest",
     "webRequestBlocking",
+    "webNavigation",
     "<all_urls>"
    ],
   "icons": {
@@ -21,7 +23,9 @@
     ]
   },
   "browser_action": {
-    "default_icon": "imgs/icon_16.png"
+    "default_icon" : "imgs/icon_16.png",
+    "default_popup" : "src/popup.html",
+    "default_title" : "View blocked S3 resources"
   },
   "options_ui": {
       "page" : "src/options.html",

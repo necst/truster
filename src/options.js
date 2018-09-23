@@ -1,3 +1,5 @@
+"use strict";
+
 function getOptions() {
     chrome.storage.sync.get({
         truster_action : 'block',

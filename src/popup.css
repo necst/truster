@@ -1,0 +1,21 @@
+html {
+    font-size: 0.7em;
+}
+
+#container {
+    padding: 0.3em;
+    min-width: 350px;
+    background: #f7f7f7;
+}
+
+#footer {
+    font-size: 0.85em;
+    border-top: 1px solid #65676b;
+    padding-top: 0.2em;
+}
+
+#footer p {
+    margin: 0;
+    padding: 0;
+    color: #65676b;
+}
