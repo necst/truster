@@ -133,10 +133,10 @@ let listeners = {
 
                 if (Truster.settings.action == "block") {
                     console.log("[Truster] Untrusted resource blocked: " + info.url);
-                    
+
                     Truster.tabs[tab_id][bucketName].push({
                         'url' : info.url,
-                        'mode' : 'block' 
+                        'mode' : 'block'
                     });
                     updateBadge(tab_id);
 
@@ -147,10 +147,10 @@ let listeners = {
                     console.log("[Truster] Untrusted resource, asking: " + info.url);
                     if (!confirm("Load an untrusted resource " + info.url + "?")){
                         console.log("[Truster] Untrusted resource blocked: " + info.url);
-                        
+
                         Truster.tabs[tab_id][bucketName].push({
                             'url' : info.url,
-                            'mode' : 'block' 
+                            'mode' : 'block'
                         });
                         updateBadge(tab_id);
 
@@ -160,7 +160,7 @@ let listeners = {
 
                 Truster.tabs[tab_id][bucketName].push({
                         'url' : info.url,
-                        'mode' : 'warn' 
+                        'mode' : 'warn'
                 });
                 updateBadge(tab_id);
 
@@ -230,5 +230,8 @@ chrome.storage.sync.get({
     chrome.tabs.onReplaced.addListener(listeners.onTabReplaced);
     chrome.webNavigation.onBeforeNavigate.addListener(listeners.onBeforeNavigate);
     chrome.runtime.onMessage.addListener(listeners.onMessage);
+    chrome.webNavigation.onCompleted.addListener(function(o) {
+        updateBadge(o.tabId);
+    });
 
 });
