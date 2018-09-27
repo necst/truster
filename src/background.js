@@ -84,7 +84,9 @@ let listeners = {
     },
 
     onBeforeNavigate : function(o) {
-        delete Truster.tabs[o.tabId];
+        if(o.frameId == 0) {
+            delete Truster.tabs[o.tabId];
+        }
     },
 
     /* called for all requests pointing to a subdomain of S3 */
@@ -95,7 +97,7 @@ let listeners = {
         var blacklist;
         var downloadBlacklist = false;
 
-        console.log("[Truster] Checking " + info.url);
+        console.log("[Truster] Checking " + info.url + ' on tab ' + info.tabId);
 
         if (localStorage.getItem("truster-blacklist") != null){
             blacklist = JSON.parse(localStorage.getItem("truster-blacklist")).blacklist;
@@ -211,7 +213,7 @@ chrome.storage.sync.get({
     });
 
     chrome.webRequest.onBeforeRequest.addListener(listeners.onBeforeRequest, {
-        urls: ["*://*.s3.amazonaws.com/"]
+        urls: ["*://*.s3.amazonaws.com/*"]
     },
     ["blocking"]);
 
