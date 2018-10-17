@@ -24,7 +24,7 @@ truster is the outcome of a research study performed at the [NECSTLab](http://ne
 
 We present the findings of this study in the following research paper:
 
-**There's a Hole in that Bucket! A Large-scale Analysis of Misconfigured S3 Buckets**  
+**There's a Hole in that Bucket! A Large-scale Analysis of Misconfigured S3 Buckets** [[PDF]](https://conand.me/publications/continella-bucketsec-2018.pdf)  
 Andrea Continella, Mario Polino, Marcello Pogliani, Stefano Zanero.  
 *In Proceedings of the ACM Annual Computer Security Applications Conference (ACSAC), December 2018*
 
