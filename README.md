@@ -9,7 +9,9 @@ Websites often load assets (CSS, JS,..) hosted in AWS S3 buckets. Unfortunately,
 
 ### Install
 
-truster beta version can be installed by enabling Chrome developer mode:
+truster is now available on the [Chrome store](https://chrome.google.com/webstore/detail/truster/eiiilcdomkafolppehfkjdaflcblakml)
+
+Alternatively, truster can be installed from sources by enabling Chrome developer mode:
 * Go to [chrome://extensions/](chrome://extensions/).
 * Enable Developer mode by moving the slider at the top right corner.
 * Install truster clicking on the "Unload unpacked" button at the left top corner. 
